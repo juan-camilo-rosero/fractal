@@ -11,7 +11,7 @@ function Button({ text, func, type, size, aditionalStyles = "" }) {
   const sizeClass = size ? `text-${size}` : "";
 
   const buttonClasses = `
-    font-semibold py-3 w-full rounded-md
+    font-semibold py-3 px-8 rounded-md outline-none
     ${baseClasses}
     ${sizeClass}
     ${aditionalStyles} /* Coloca las clases adicionales al final */

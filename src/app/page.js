@@ -2,6 +2,7 @@ import Header from './components/header/Header'
 import HeroSection from './components/landing/HeroSection'
 import Features from './components/landing/Features'
 import CTA from './components/landing/CTA'
+import Footer from './components/footer/Footer'
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection/>
       <Features/>
       <CTA/>
+      <Footer/>
     </div>
   );
 }
