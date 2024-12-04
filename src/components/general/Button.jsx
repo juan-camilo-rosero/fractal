@@ -1,6 +1,6 @@
 "use client";
 
-function Button({ text, func, type, size, aditionalStyles = "" }) {
+function Button({ text, func, type, size, aditionalStyles = "", disabled = false}) {
   const baseClasses =
     type === "primary"
       ? "text-fgray-200"
@@ -19,7 +19,7 @@ function Button({ text, func, type, size, aditionalStyles = "" }) {
   `.trim();
 
   return (
-    <button onClick={func} className={buttonClasses}>
+    <button onClick={func} className={buttonClasses} disabled={disabled}>
       {text}
     </button>
   );
