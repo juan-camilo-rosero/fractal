@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   fetchSignInMethodsForEmail,
+  signOut,
 } from "firebase/auth";
 
 // Función para buscar si existe un usuario con el correo electrónico proporcionado
@@ -64,5 +65,16 @@ export const continueWithGoogle = async () => {
   } catch (error) {
     const errorMessage = error.message;
     throw new Error(errorMessage);
+  }
+};
+
+// Función para cerrar sesión y redirigir al usuario a la landing page
+export const logout = async () => {
+  try {
+    await signOut(auth); // Cerrar sesión
+    window.location.href = "/"; // Redirigir a la landing page (asegúrate de que "/" sea tu ruta de landing)
+  } catch (e) {
+    console.error("Error al cerrar sesión: ", e);
+    throw new Error("No se pudo cerrar la sesión");
   }
 };

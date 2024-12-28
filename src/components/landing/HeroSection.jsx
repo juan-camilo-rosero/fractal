@@ -3,6 +3,7 @@
 import { useContext } from 'react';
 import { SectionContext } from '@/context/SectionContext';
 import Button from '../general/Button'
+import InfiniteScroller from './InfiniteScroller'
 
 function HeroSection() {
 
@@ -17,7 +18,10 @@ function HeroSection() {
             <Button text="Login" type="secondary" size="xl" func={e => setLoginOpen(true)
             } aditionalStyles='w-full lg:w-auto lg:text-xl lg:px-16'/>
         </div>
-        <div className='bg-fgray-400 w-screen h-[20vh] mt-20'></div>
+        <div className='w-screen mt-20 flex flex-col items-center gap-6'>
+          <InfiniteScroller words={["probability", "genetics", "globalization", "periodic table", "phrasal verbs", "human rights", "industrial revolution", "trigonometry", "paragraph types", "cold war", "thermodynamics"]}/>
+          <InfiniteScroller words={["literary analysis", "microeconomics", "cell biology", "art history","photosynthesis", "ancient civilizations", "calculus", "climate change", "classical mechanics", "world history", "human anatomy", "philosophy"]} direction='right'/>
+        </div>
     </section>
   )
 }
