@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { SectionContext } from "@/context/SectionContext";
 import { signup } from "@/lib/auth_functions";
 import { useRouter } from "next/navigation";
+import { createUser } from "@/lib/user_functions";
 
 function SignUpForm() {
   const [email, setEmail] = useState("");
@@ -43,6 +44,7 @@ function SignUpForm() {
       setLoading(true);
       try {
         await signup(email, password);
+        await createUser(email)
         router.push("/dashboard"); // Redirect to the dashboard
       } catch (error) {
         setErrorMessage(error.message || "An error occurred during sign-up.");
