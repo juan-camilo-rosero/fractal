@@ -4,8 +4,8 @@ import { RiFacebookCircleFill } from "react-icons/ri";
 
 function Footer() {
   return (
-    <footer className="w-screen px-8 pb-8 lg:px-16">
-      <div className="w-full bg-fblue-700 rounded-xl flex flex-col items-center p-8 lg:flex-row lg:items-start lg:justify-between lg:px-16 lg:py-12">
+    <footer className="w-screen lg:px-16 lg:pb-8">
+      <div className="w-full bg-fblue-700 rounded-t-xl lg:rounded-xl flex flex-col items-center p-8 lg:flex-row lg:items-start lg:justify-between lg:px-16 lg:py-12">
         <img
           src="/logo/logo_bg_blue.png"
           alt="Logo fractal"
