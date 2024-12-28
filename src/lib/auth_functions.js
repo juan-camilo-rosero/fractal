@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   fetchSignInMethodsForEmail,
   signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 // Función para buscar si existe un usuario con el correo electrónico proporcionado
@@ -32,7 +33,6 @@ export const login = async (email, password) => {
       email,
       password
     );
-    console.log(userCredential.user);
     return userCredential.user;
   } catch (e) {
     throw new Error(e.message);
@@ -60,7 +60,7 @@ export const continueWithGoogle = async () => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     const user = result.user;
-    
+
     return user;
   } catch (error) {
     const errorMessage = error.message;
@@ -77,4 +77,17 @@ export const logout = async () => {
     console.error("Error al cerrar sesión: ", e);
     throw new Error("No se pudo cerrar la sesión");
   }
+};
+
+// Función para validar si hay un usuario logeado
+export const isUserLoggedIn = async () => {
+  return new Promise((resolve) => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        resolve(user); // Retorna el objeto user si hay un usuario logeado
+      } else {
+        resolve(false); // Retorna false si no hay un usuario logeado
+      }
+    });
+  });
 };

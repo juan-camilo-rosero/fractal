@@ -1,3 +1,5 @@
+"use client";
+
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
 import {
   SidebarInset,
@@ -5,9 +7,42 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { UserContextProvider } from "@/context/UserContext";
-import Courses from '@/components/dashboard/Courses'
+import Courses from "@/components/dashboard/Courses";
+import { isUserLoggedIn } from "@/lib/auth_functions";
+import { useEffect, useState } from "react";
+
+const findUser = async () => {
+  try {
+    const res = await isUserLoggedIn();
+    console.log("User check result:", res);
+    return res;
+  } catch (error) {
+    console.error("Error checking user login status:", error);
+    return null;
+  }
+};
 
 export default function Page() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const res = await findUser();
+      if (!res) {
+        window.location.href = "/";
+        return;
+      }
+      setUser(res);
+    };
+
+    checkUser();
+  }, []);
+
+  // Evitar renderizar contenido si `user` aún es nulo
+  if (user === null) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <UserContextProvider>
       <SidebarProvider>
