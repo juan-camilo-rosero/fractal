@@ -11,14 +11,14 @@ import {
 export function NavMain({ items }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
-      <SidebarMenu>
+      <SidebarGroupLabel className="text-lg">Platform</SidebarGroupLabel>
+      <SidebarMenu className="mt-2 gap-2">
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild>
-              <a href={item.url}>
-                <item.icon />
-                <span>{item.name}</span>
+              <a href={item.url} className="text-base flex items-center">
+                <item.icon className="w-6 h-6" />
+                <span className="ml-2 text-base">{item.name}</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

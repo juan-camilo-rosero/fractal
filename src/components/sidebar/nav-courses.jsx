@@ -20,7 +20,7 @@ export function NavProjects({ projects }) {
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>My courses</SidebarGroupLabel>
+      <SidebarGroupLabel className="text-lg">My courses</SidebarGroupLabel>
       <SidebarMenu>
         {projects.map((item) => (
           <Collapsible
@@ -31,10 +31,10 @@ export function NavProjects({ projects }) {
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip={item.title}>
-                  {item.icon && <item.icon />}
-                  <span>{item.title}</span>
-                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                <SidebarMenuButton tooltip={item.title} className="text-base mt-2">
+                  {item.icon && <item.icon className="w-5 h-5" />}
+                  <span className="text-base">{item.title}</span>
+                  <ChevronRight className="ml-auto w-5 h-5 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>
@@ -43,7 +43,7 @@ export function NavProjects({ projects }) {
                     <SidebarMenuSubItem key={subItem.title}>
                       <SidebarMenuSubButton asChild>
                         <a href={subItem.url}>
-                          <span>{subItem.title}</span>
+                          <span className="text-base">{subItem.title}</span>
                         </a>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
