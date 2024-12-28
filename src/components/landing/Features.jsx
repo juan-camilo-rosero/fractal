@@ -26,7 +26,7 @@ function Features() {
         <div className="flex flex-col gap-10 md:flex-row">
           <Figure
             title="Different formats"
-            desc="Do you learn better with videos, or do you prefer a lecture, don't worry, we use both to make learning easy for you."
+            desc="Do you learn better with videos, or do you prefer a lecture, don&apos;t worry, we use both to make learning easy for you."
             route="/images/features/feature_3.png"
             alt="Different formats"
           />
