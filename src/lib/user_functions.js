@@ -23,7 +23,7 @@ export const createUser = async (email) => {
         phone: null,
         school: null,
         exam: null,
-        presentationDate: null,
+        examDate: null,
         preparation: null,
         freeTime: null,
         profilePic: null,
