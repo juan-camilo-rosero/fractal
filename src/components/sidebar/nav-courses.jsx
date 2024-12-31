@@ -1,7 +1,6 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
-
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -16,37 +15,62 @@ import {
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible";
 import { useContext } from "react";
 import { CoursesContext } from "@/context/CoursesContext";
+import {
+  RiCalculatorLine,
+  RiLeafFill,
+  RiTimeFill,
+  RiBookReadLine,
+} from "react-icons/ri";
+
+const getIcon = (type) => {
+  switch (type) {
+    case "math":
+      return <RiCalculatorLine />;
+    case "science":
+      return <RiLeafFill />;
+    case "history":
+      return <RiTimeFill />;
+    case "literature":
+      return <RiBookReadLine />;
+    case "social-studies":
+      return <RiTimeFill />;
+    case "languages":
+      return <RiBookReadLine />;
+    default:
+      return <RiCalculatorLine />;
+  }
+};
 
 export function NavProjects() {
   const { isMobile } = useSidebar();
-  const courses = useContext(CoursesContext)
+  const courses = useContext(CoursesContext);
 
-  const coursesData = Object.keys(courses).map(key => courses[key])
+  const coursesData = Object.keys(courses).map((key) => courses[key]);
 
   console.log(coursesData);
-  
+
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel className="text-lg">My courses</SidebarGroupLabel>
       <SidebarMenu>
-        {coursesData[0].map((item, index) => (
+        {coursesData[0].map((course, index) => (
           <Collapsible
             key={index}
             asChild
-            defaultOpen={item.isActive}
+            defaultOpen={course.isActive}
             className="group/collapsible"
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip={item.name} className="text-base mt-2">
-                  {item.icon && <item.icon className="w-5 h-5" />}
-                  <span className="text-base">{item.name}</span>
+                <SidebarMenuButton tooltip={course.name} className="text-base mt-2">
+                  {course.type && getIcon(course.type)}
+                  <span className="text-base">{course.name}</span>
                   <ChevronRight className="ml-auto w-5 h-5 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <SidebarMenuSub>
-                  {item.lessons?.map((subItem) => (
+                  {course.lessons?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.name}>
                       <SidebarMenuSubButton asChild>
                         <a href={subItem.url}>

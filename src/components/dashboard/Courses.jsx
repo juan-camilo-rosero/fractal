@@ -41,7 +41,7 @@ function Courses() {
           return (
             <a
               key={i}
-              href={course.url}
+              href={`/course/${course.url}`}
               className={`border-2 p-5 rounded-lg cursor-pointer  w-full md:w-[48%] lg:w-[calc(25%-1.25rem)] transition-all ${
                 isCompleted ? "bg-fblue-700" : "bg-white border-fgray-600 hover:bg-fgray-200"
               }`}
