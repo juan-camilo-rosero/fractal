@@ -1,47 +1,11 @@
+import { CoursesContext } from "@/context/CoursesContext";
+import { useContext } from "react";
 import { RiCalculatorFill, RiCalculatorLine, RiLeafFill, RiTimeFill, RiBookReadLine } from "react-icons/ri";
-
-const courses = [
-  {
-    name: "Functions",
-    subject: "math",
-    totalLessons: 6,
-    completedLessons: 4,
-    url: "#",
-  },
-  {
-    name: "Genetics",
-    subject: "science",
-    totalLessons: 5,
-    completedLessons: 1,
-    url: "#",
-  },
-  {
-    name: "Cold war",
-    subject: "social-studies",
-    totalLessons: 6,
-    completedLessons: 3,
-    url: "#",
-  },
-  {
-    name: "Climate change",
-    subject: "science",
-    totalLessons: 3,
-    completedLessons: 2,
-    url: "#",
-  },
-  {
-    name: "Shakespeare's Works",
-    subject: "literature",
-    totalLessons: 5,
-    completedLessons: 5,
-    url: "#",
-  },
-];
 
 function Courses() {
   // Función para obtener el icono correcto según la asignatura
-  const getIcon = (subject) => {
-    switch (subject) {
+  const getIcon = (type) => {
+    switch (type) {
       case "math":
         return <RiCalculatorLine/>;
       case "science":
@@ -58,6 +22,9 @@ function Courses() {
         return <RiCalculatorLine/>;
     }
   };
+
+  const {courses} = useContext(CoursesContext)
+  
 
   // Ordenar cursos: los completados al final
   const sortedCourses = [...courses].sort((a, b) => {
@@ -85,7 +52,7 @@ function Courses() {
                     isCompleted ? "bg-white text-fred-700" : "bg-fblue-700 text-fgray-100"
                   }`}
                 >
-                  {getIcon(course.subject)}
+                  {getIcon(course.type)}
                 </div>
               </div>
               <h4

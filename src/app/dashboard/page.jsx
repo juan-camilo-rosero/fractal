@@ -7,6 +7,10 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { UserContextProvider, UserContext } from "@/context/UserContext";
+import {
+  CoursesContextProvider,
+  CoursesContext,
+} from "@/context/CoursesContext";
 import Courses from "@/components/dashboard/Courses";
 import { isUserLoggedIn } from "@/lib/auth_functions";
 import { useContext, useEffect, useState } from "react";
@@ -15,7 +19,6 @@ import { getDocument } from "@/lib/db_functions";
 const findUser = async () => {
   try {
     const res = await isUserLoggedIn();
-    console.log("User check result:", res.email);
     return res;
   } catch (error) {
     console.error("Error checking user login status:", error);
@@ -23,41 +26,50 @@ const findUser = async () => {
   }
 };
 
-const getUser = async email => {
+const getUser = async (email) => {
   try {
-    const res = await getDocument("users", email)
-    console.log(res);
-    return res
+    const res = await getDocument("users", email);
+    return res;
   } catch (err) {
     console.error("An error has ocurred: " + err);
-    return null
+    return null;
   }
-}
+};
 
-const getCourses = async email => {
+const getCourses = async (email) => {
   try {
-    const res = await getDocument("courses", email)
-    console.log(res);
-    return res
+    const res = await getDocument("courses", email);
+    return res;
   } catch (err) {
     console.error("An error has ocurred: " + err);
-    return null
+    return null;
   }
-}
+};
 
-const getProgress = async email => {
+const getProgress = async (email) => {
   try {
-    const res = await getDocument("progress", email)
-    console.log(res);
-    return res
+    const res = await getDocument("progress", email);
+    return res;
   } catch (err) {
     console.error("An error has ocurred: " + err);
-    return null
+    return null;
   }
-}
+};
 
 function PageContent() {
-  const { setEmail, setPhone, setUsername, setLastName, setFreeTime, setPreparation, setExamDate, setExam, setSchool, setProfilePic } = useContext(UserContext);
+  const {
+    setEmail,
+    setPhone,
+    setUsername,
+    setLastName,
+    setFreeTime,
+    setPreparation,
+    setExamDate,
+    setExam,
+    setSchool,
+    setProfilePic,
+  } = useContext(UserContext);
+  const {setCourses} = useContext(CoursesContext)
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -69,11 +81,11 @@ function PageContent() {
       }
       setUser(res);
       setEmail(res.email);
-      
-      const userData = await getUser(res.email)
-      const coursesData = await getCourses(res.email)
-      const progressData = await getProgress(res.email)
-      
+
+      const userData = await getUser(res.email);
+      const coursesData = await getCourses(res.email);
+      const progressData = await getProgress(res.email);
+
       setPhone(userData.phone);
       setUsername(userData.username);
       setLastName(userData.lastName);
@@ -83,6 +95,13 @@ function PageContent() {
       setExamDate(userData.examDate);
       setSchool(userData.school);
       setProfilePic(userData.profilePic);
+
+      const coursesContent = Object.keys(coursesData).map(
+        (key) => coursesData[key]
+      );
+
+      setCourses(coursesContent)
+  
     };
 
     checkUser();
@@ -116,7 +135,9 @@ function PageContent() {
 export default function Page() {
   return (
     <UserContextProvider>
-      <PageContent />
+      <CoursesContextProvider>
+        <PageContent />
+      </CoursesContextProvider>
     </UserContextProvider>
   );
 }
