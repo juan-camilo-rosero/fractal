@@ -64,7 +64,7 @@ function PageContent() {
     setUsername,
     setLastName,
     setFreeTime,
-    setPreparation,
+    setPreparation, 
     setExamDate,
     setExam,
     setSchool,
