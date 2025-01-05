@@ -1,13 +1,11 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-
 function page() {
-    const router = useRouter();
-    router.push("/dashboard");
 
     return (
-        <div>Redirecting...</div>
+        <div className="w-screen h-screen bg-black">
+          <p>Error 404 jajant</p>
+        </div>
     )
 }
 
