@@ -1,15 +1,14 @@
 'use client'
 
-import { useEffect } from "react"
+import { useRouter } from 'next/navigation'
 
-function page() {
-    useEffect(() => {
-      window.location.href = "/dashboard"
-    }, [])
-    
-  return (
-    <div>page</div>
-  )
+function Page() {
+    const router = useRouter();
+    router.push("/dashboard");
+
+    return (
+        <div>Redirecting...</div>
+    )
 }
 
-export default page
+export default Page;
