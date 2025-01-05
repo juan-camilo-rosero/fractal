@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 
-function Page() {
+function page() {
     const router = useRouter();
     router.push("/dashboard");
 
@@ -11,4 +11,4 @@ function Page() {
     )
 }
 
-export default Page;
+export default page;

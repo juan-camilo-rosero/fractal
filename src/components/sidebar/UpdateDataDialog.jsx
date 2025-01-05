@@ -50,7 +50,7 @@ export default function UpdateDataDialog({ isOpen, onOpenChange }) {
           <DrawerHeader>
             <DrawerTitle>Update Data</DrawerTitle>
             <DrawerDescription>
-              Modify your profile information below. Click "Save changes" when you're done.
+              Modify your profile information below. Click &quot;Save changes&quot; when you&apos;re done.
             </DrawerDescription>
           </DrawerHeader>
           {children}
@@ -63,7 +63,7 @@ export default function UpdateDataDialog({ isOpen, onOpenChange }) {
           <DialogHeader>
             <DialogTitle>Update Data</DialogTitle>
             <DialogDescription>
-              Modify your profile information below. Click "Save changes" when you're done.
+              Modify your profile information below. Click &quot;Save changes&quot; when you&apos;re done.
             </DialogDescription>
           </DialogHeader>
           {children}
