@@ -123,7 +123,7 @@ export default function UpdateDataDialog({ isOpen, onOpenChange }) {
         <DialogHeader>
           <DialogTitle>Update Data</DialogTitle>
           <DialogDescription>
-            Modify your profile information below. Click &quot;Save changes&quot; when you're done.
+            Modify your profile information below. Click &quot;Save changes&quot; when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
