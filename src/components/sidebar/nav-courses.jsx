@@ -47,8 +47,6 @@ export function NavProjects() {
 
   const coursesData = Object.keys(courses).map((key) => courses[key]);
 
-  console.log(coursesData);
-
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel className="text-lg">My courses</SidebarGroupLabel>

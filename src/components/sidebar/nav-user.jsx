@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { BadgeCheck, ChevronsUpDown, LogOut } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -33,6 +33,10 @@ const handleLogout = async () => {
 export function NavUser({ user }) {
   const { isMobile } = useSidebar();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleDialogOpenChange = useCallback((open) => {
+    setIsDialogOpen(open);
+  }, []);
 
   return (
     <>
@@ -92,7 +96,14 @@ export function NavUser({ user }) {
           </DropdownMenu>
         </SidebarMenuItem>
       </SidebarMenu>
-      <UpdateDataDialog isOpen={isDialogOpen} onOpenChange={setIsDialogOpen} />
+
+      {/* Evitar desmontaje/remontaje innecesario */}
+      {isDialogOpen && (
+        <UpdateDataDialog
+          isOpen={isDialogOpen}
+          onOpenChange={handleDialogOpenChange}
+        />
+      )}
     </>
   );
 }
