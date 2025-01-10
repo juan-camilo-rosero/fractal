@@ -85,7 +85,7 @@ function PageContent() {
 
       const userData = await getUser(res.email);
       const coursesData = await getCourses(res.email);
-      const progressData = await getProgress(res.email);
+      const progressData = await getProgress(res.email);    
 
       setPhone(userData.phone);
       setUsername(userData.username);
@@ -117,7 +117,6 @@ function PageContent() {
       <div className="flex min-h-screen w-full">
         <AppSidebar />
         <SidebarInset className="flex-grow w-full">
-          <CoursesIndex id={id}/>
         </SidebarInset>
       </div>
     </SidebarProvider>
