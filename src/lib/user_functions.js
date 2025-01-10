@@ -20,21 +20,24 @@ export const createUser = async (email) => {
           lessons: [
             {
               name: "Linear Functions",
-              url: "https://www.youtube.com/watch?v=BtcKotD6Ni8",
+              video: "https://www.youtube.com/watch?v=BtcKotD6Ni8",
+              url: "/course/functions/linear-functions",
               summary:
                 "Linear functions are mathematical relationships that create straight-line graphs on a coordinate plane. They are described by the equation f(x) = mx + b, where m is the slope and b is the y-intercept. These functions have a constant rate of change and are widely used in real-world scenarios such as physics and economics.",
               completed: true,
             },
             {
               name: "Quadratic Functions",
-              url: "https://www.youtube.com/watch?v=1oAijhj6L5g",
+              video: "https://www.youtube.com/watch?v=1oAijhj6L5g",
+              url: "/course/functions/quadratic-functions",
               summary:
                 "Quadratic functions represent parabolic relationships and are defined by the equation f(x) = ax^2 + bx + c. They are used to model various phenomena, such as projectile motion and optimization problems.",
               completed: false,
             },
             {
               name: "Exponential Functions",
-              url: "https://www.youtube.com/watch?v=4vqhI4sSQFo",
+              video: "https://www.youtube.com/watch?v=4vqhI4sSQFo",
+              url: "/course/functions/exponential-functions",
               summary:
                 "Exponential functions involve growth or decay at a constant percentage rate and are represented by the equation f(x) = a * b^x. They are critical in fields like biology, finance, and physics.",
               completed: false,

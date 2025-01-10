@@ -1,10 +1,7 @@
 "use client";
 
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { UserContextProvider, UserContext } from "@/context/UserContext";
 import {
   CoursesContextProvider,
@@ -14,7 +11,15 @@ import { isUserLoggedIn } from "@/lib/auth_functions";
 import { useContext, useEffect, useState } from "react";
 import { getDocument } from "@/lib/db_functions";
 import { useParams } from "next/navigation";
-import CoursesIndex from '@/components/courses/CoursesIndex'
+import CoursesIndex from "@/components/courses/CoursesIndex";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const findUser = async () => {
   try {
@@ -71,7 +76,7 @@ function PageContent() {
   } = useContext(UserContext);
   const { setCourses } = useContext(CoursesContext);
   const [user, setUser] = useState(null);
-  const {id} = useParams()
+  const { id, lesson } = useParams();
 
   useEffect(() => {
     const checkUser = async () => {
@@ -85,7 +90,7 @@ function PageContent() {
 
       const userData = await getUser(res.email);
       const coursesData = await getCourses(res.email);
-      const progressData = await getProgress(res.email);    
+      const progressData = await getProgress(res.email);
 
       setPhone(userData.phone);
       setUsername(userData.username);
@@ -117,6 +122,25 @@ function PageContent() {
       <div className="flex min-h-screen w-full">
         <AppSidebar />
         <SidebarInset className="flex-grow w-full">
+          <div className="w-full h-full p-5">
+            <Breadcrumb>
+              <BreadcrumbList className="text-base">
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/dashboard">Home</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink href={`/course/${id}`}>{id}</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink href={`/course/${id}/${lesson}`}>
+                    {lesson}
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+          </div>
         </SidebarInset>
       </div>
     </SidebarProvider>

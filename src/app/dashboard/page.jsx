@@ -114,7 +114,7 @@ function PageContent() {
         <SidebarInset className="flex-grow w-full relative">
           {isLoading ? (
             <div className="px-4">
-              <div className="w-full px-5 mt-4">
+              <div className="w-full mt-4">
                 <div className="h-48 rounded-xl w-full mt-20 md:mt-5 bg-neutral-150">
                   <Skeleton className="bg-neutral-300 animate-pulse w-full h-full rounded-xl" />
                 </div>
