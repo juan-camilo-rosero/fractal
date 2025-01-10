@@ -119,10 +119,10 @@ function PageContent() {
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen w-full">
+      <div className="flex w-full">
         <AppSidebar />
         <SidebarInset className="flex-grow w-full">
-          <div className="w-full h-full p-5">
+          <div className="w-full p-5">
             <Breadcrumb>
               <BreadcrumbList className="text-base">
                 <BreadcrumbItem>
@@ -130,12 +130,12 @@ function PageContent() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/course/${id}`}>{id}</BreadcrumbLink>
+                  <BreadcrumbLink href={`/course/${id}`}>{id.replace("-", " ")}</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink href={`/course/${id}/${lesson}`}>
-                    {lesson}
+                    {lesson.replace("-", " ")}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
               </BreadcrumbList>

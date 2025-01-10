@@ -43,9 +43,9 @@ const lessons = [
 
 function Lessons() {
   return (
-    <div>
+    <div className="w-full">
       <h2 className="text-2xl font-semibold mb-4">Lessons</h2>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 lg:max-h-[80vh] lg:overflow-y-auto py-3 rounded-xl">
         {lessons.map((lesson, index) => (
           <Lesson lesson={lesson} key={index} preview={true} />
         ))}
