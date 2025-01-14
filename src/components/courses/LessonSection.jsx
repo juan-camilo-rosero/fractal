@@ -1,7 +1,7 @@
 "use client";
 
 import { CoursesContext } from "@/context/CoursesContext";
-import Lessons from "./Lessons";
+import LessonsProgress from "./LessonsProgress";
 import { useContext, useEffect, useState } from "react";
 
 function LessonSection({id, lesson}) {
@@ -46,7 +46,7 @@ function LessonSection({id, lesson}) {
         <p className="text-fgray-800 text-base text-justify">{lessonSummary}</p>
       </div>
       <div className="lg:w-2/5 lg:sticky lg:top-0">
-        <Lessons />
+        <LessonsProgress />
       </div>
     </section>
   );

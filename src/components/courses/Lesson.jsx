@@ -2,7 +2,7 @@
 
 function Lesson({preview, lesson}) {
   return (
-    <figure className={`flex flex-row gap-4 px-2 py-3 rounded-lg w-full ${lesson.completed ? "bg-fblue-700" : "bg-fgray-200"} cursor-pointer`} onClick={e => location.href=lesson.url}>
+    <a className={`flex flex-row gap-4 px-2 py-3 rounded-lg w-full ${lesson.completed ? "bg-fblue-700" : "bg-fgray-200"} cursor-pointer`} href={lesson.url}>
         <div className={`${preview ? "block" : "hidden"} w-2/5 flex items-center`}>
             <img src={lesson.img} alt="lesson image" className="w-full rounded-lg"/>
         </div>
@@ -11,7 +11,7 @@ function Lesson({preview, lesson}) {
             <p className={`${lesson.completed ? "text-fgray-100" : "text-fgray-800"} font-semibold text-xs opacity-75 mb-4`}>{lesson.minutes} minutes</p>
             <p className={`${lesson.completed ? "text-fgray-100" : "text-fgray-800"} text-sm`}>{(lesson.completed) ? "Completed" : "Pending"}</p>
         </div>
-    </figure>
+    </a>
   )
 }
 
