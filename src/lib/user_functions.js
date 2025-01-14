@@ -19,30 +19,42 @@ export const createUser = async (email) => {
           completedLessons: 1,
           lessons: [
             {
-              name: "Linear Functions",
-              video: "https://www.youtube.com/watch?v=BtcKotD6Ni8",
-              url: "/course/functions/linear-functions",
-              summary:
-                "Linear functions are mathematical relationships that create straight-line graphs on a coordinate plane. They are described by the equation f(x) = mx + b, where m is the slope and b is the y-intercept. These functions have a constant rate of change and are widely used in real-world scenarios such as physics and economics.",
+              title: "Linear Functions",
+              minutes: 16,
+              img: "https://i.ytimg.com/vi/BtcKotD6Ni8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDhv8645uoEJ8-Ej-n1uwhLcGEyGg",
               completed: true,
+              url: "/course/functions/linear-functions",
+              video: "https://www.youtube.com/watch?v=BtcKotD6Ni8",
+              course: "functions",
+              summary:
+                "Learn how linear functions represent a straight-line relationship between two variables and how to graph them effectively.",
             },
             {
-              name: "Quadratic Functions",
-              video: "https://www.youtube.com/watch?v=1oAijhj6L5g",
+              title: "Quadratic Functions",
+              minutes: 24,
+              img: "https://i.ytimg.com/vi/IlNAJl36-10/maxresdefault.jpg",
+              completed: false,
               url: "/course/functions/quadratic-functions",
+              video: "https://www.youtube.com/watch?v=Hq2Up_1Ih5E",
+              course: "functions",
               summary:
-                "Quadratic functions represent parabolic relationships and are defined by the equation f(x) = ax^2 + bx + c. They are used to model various phenomena, such as projectile motion and optimization problems.",
-              completed: false,
+                "Explore the properties of quadratic functions, including parabolas, vertex form, and solving quadratic equations.",
             },
             {
-              name: "Exponential Functions",
-              video: "https://www.youtube.com/watch?v=4vqhI4sSQFo",
-              url: "/course/functions/exponential-functions",
-              summary:
-                "Exponential functions involve growth or decay at a constant percentage rate and are represented by the equation f(x) = a * b^x. They are critical in fields like biology, finance, and physics.",
+              title: "Exponential Functions",
+              minutes: 11,
+              img: "https://i.ytimg.com/vi/tAaDItpC8OI/maxresdefault.jpg",
               completed: false,
+              url: "/course/functions/exponential-functions",
+              video: "https://www.youtube.com/watch?v=3G5WluJ7LFA",
+              course: "functions",
+              summary:
+                "Understand the behavior of exponential functions, including growth, decay, and their applications in real-world scenarios.",
             },
           ],
+          video: "https://www.youtube.com/embed/52tpYl2tTqk",
+          summary: "Functions are a fundamental concept in mathematics that describe the relationship between two sets of elements, often represented as inputs and outputs. A function assigns each input value from its domain to a single output value in its range. They are typically expressed as equations, such as f(x)=x2f(x)=x2, where f(x)f(x) represents the output for any given input xx. Functions play a critical role in various branches of mathematics, including algebra, calculus, and statistics, serving as the backbone for modeling and analyzing real-world phenomena. Their versatility makes them essential in fields ranging from physics to economics.",
+          completed: false,
         },
         1: {
           name: "Climate Change",
@@ -52,27 +64,43 @@ export const createUser = async (email) => {
           completedLessons: 1,
           lessons: [
             {
-              name: "Causes of Climate Change",
-              url: "https://www.youtube.com/watch?v=vP3pbh_-pu8",
-              summary:
-                "This lesson explores the natural and human-induced factors contributing to climate change, including greenhouse gas emissions, deforestation, and industrial activities.",
+              title: "Causes of Climate Change",
+              minutes: 15,
+              img: "https://i.ytimg.com/vi/vP3pbh_-pu8/maxresdefault.jpg",
               completed: true,
+              url: "/course/climate-change/causes-of-climate-change",
+              video: "https://www.youtube.com/watch?v=vP3pbh_-pu8",
+              course: "climate-change",
+              summary:
+                "Discover the natural and human activities that drive climate change, including greenhouse gases and deforestation.",
             },
             {
-              name: "Impacts of Climate Change",
-              url: "https://www.youtube.com/watch?v=G4H1N_yXBiA",
-              summary:
-                "Learn about the effects of climate change on ecosystems, sea levels, weather patterns, and human health. The lesson highlights the importance of mitigation and adaptation strategies.",
+              title: "Impacts of Climate Change",
+              minutes: 20,
+              img: "https://i.ytimg.com/vi/G4H1N_yXBiA/maxresdefault.jpg",
               completed: false,
+              url: "/course/climate-change/impacts-of-climate-change",
+              video: "https://www.youtube.com/watch?v=G4H1N_yXBiA",
+              course: "climate-change",
+              summary:
+                "Learn about the consequences of climate change on ecosystems, weather patterns, and global sea levels.",
             },
             {
-              name: "Solutions to Climate Change",
-              url: "https://www.youtube.com/watch?v=6VUPIX7yEOM",
-              summary:
-                "This lesson discusses strategies to combat climate change, including renewable energy adoption, energy efficiency, reforestation, and international agreements like the Paris Accord.",
+              title: "Solutions to Climate Change",
+              minutes: 18,
+              img: "https://i.ytimg.com/vi/6VUPIX7yEOM/maxresdefault.jpg",
               completed: false,
+              url: "/course/climate-change/solutions-to-climate-change",
+              video: "https://www.youtube.com/watch?v=6VUPIX7yEOM",
+              course: "climate-change",
+              summary:
+                "Explore strategies to mitigate climate change, including renewable energy, conservation, and international agreements.",
             },
           ],
+          video: "https://www.youtube.com/embed/QlQ-MEZgRGY",
+          summary:
+            "Climate change refers to long-term alterations in global or regional climate patterns, often associated with an increase in Earth's average temperature. This phenomenon is primarily driven by human activities, such as the burning of fossil fuels, deforestation, and industrial processes, which release greenhouse gases like carbon dioxide and methane into the atmosphere. These gases trap heat, causing a variety of environmental impacts, including rising sea levels, more frequent extreme weather events, and disruptions to ecosystems. Addressing climate change requires global cooperation and innovative solutions to transition toward sustainable practices.",
+          completed: false,
         },
         2: {
           name: "The Cold War",
@@ -82,27 +110,43 @@ export const createUser = async (email) => {
           completedLessons: 1,
           lessons: [
             {
-              name: "Origins of the Cold War",
-              url: "https://www.youtube.com/watch?v=wVqziNV7dGY",
-              summary:
-                "The Cold War began after World War II due to ideological conflicts between the United States and the Soviet Union. This lesson covers the historical context and key events that led to the rivalry.",
+              title: "Origins of the Cold War",
+              minutes: 19,
+              img: "https://i.ytimg.com/vi/wVqziNV7dGY/maxresdefault.jpg",
               completed: true,
+              url: "/course/the-cold-war/origins-of-the-cold-war",
+              video: "https://www.youtube.com/watch?v=wVqziNV7dGY",
+              course: "the-cold-war",
+              summary:
+                "Understand how ideological differences between the US and USSR led to the start of the Cold War after WWII.",
             },
             {
-              name: "Major Events of the Cold War",
-              url: "https://www.youtube.com/watch?v=HPPR2bLm45o",
-              summary:
-                "Explore pivotal moments such as the Cuban Missile Crisis, the Vietnam War, and the Space Race, highlighting the tensions and competition between superpowers.",
+              title: "Major Events of the Cold War",
+              minutes: 25,
+              img: "https://i.ytimg.com/vi/HPPR2bLm45o/maxresdefault.jpg",
               completed: false,
+              url: "/course/the-cold-war/major-events-of-the-cold-war",
+              video: "https://www.youtube.com/watch?v=HPPR2bLm45o",
+              course: "the-cold-war",
+              summary:
+                "Examine key events like the Cuban Missile Crisis and the Space Race that defined the Cold War era.",
             },
             {
-              name: "End of the Cold War",
-              url: "https://www.youtube.com/watch?v=zH7BneN7TMc",
-              summary:
-                "Learn how the Cold War concluded with the fall of the Berlin Wall, the dissolution of the Soviet Union, and the rise of a new world order in the late 20th century.",
+              title: "End of the Cold War",
+              minutes: 17,
+              img: "https://i.ytimg.com/vi/zH7BneN7TMc/maxresdefault.jpg",
               completed: false,
+              url: "/course/the-cold-war/end-of-the-cold-war",
+              video: "https://www.youtube.com/watch?v=zH7BneN7TMc",
+              course: "the-cold-war",
+              summary:
+                "Learn about the conclusion of the Cold War, marked by the fall of the Berlin Wall and the dissolution of the USSR.",
             },
           ],
+          video: "https://www.youtube.com/embed/-QopdZ7G8ww",
+          summary:
+            "The Cold War was a period of political and ideological tension between the United States and the Soviet Union that lasted from the mid-20th century until the early 1990s. Unlike traditional wars, it was characterized by proxy conflicts, espionage, and an arms race, particularly in the development of nuclear weapons. The conflict was fueled by the opposing ideologies of capitalism and communism, shaping international relations and alliances across the globe. Despite the absence of direct military confrontation between the superpowers, the Cold War had profound effects on global politics, economics, and culture, leaving a lasting legacy on the modern world.",
+          completed: false,
         },
         3: {
           name: "Types of Text",
@@ -111,27 +155,43 @@ export const createUser = async (email) => {
           completedLessons: 1,
           lessons: [
             {
-              name: "Narrative Texts",
-              url: "https://www.youtube.com/watch?v=3b4gNlP3zcM",
-              summary:
-                "Narrative texts tell a story or recount events. This lesson covers the structure and elements of narratives, including characters, plot, and setting.",
+              title: "Narrative Texts",
+              minutes: 14,
+              img: "https://i.ytimg.com/vi/3b4gNlP3zcM/maxresdefault.jpg",
               completed: true,
+              url: "/course/types-of-text/narrative-texts",
+              video: "https://www.youtube.com/watch?v=3b4gNlP3zcM",
+              course: "types-of-text",
+              summary:
+                "Learn how narrative texts tell a story with characters, a plot, and a structured sequence of events.",
             },
             {
-              name: "Expository Texts",
-              url: "https://www.youtube.com/watch?v=9GyTQRTmZdk",
-              summary:
-                "Expository texts aim to inform or explain. They are structured to present facts, data, and clear arguments, often using headings and subheadings for clarity.",
+              title: "Expository Texts",
+              minutes: 12,
+              img: "https://i.ytimg.com/vi/9GyTQRTmZdk/maxresdefault.jpg",
               completed: false,
+              url: "/course/types-of-text/expository-texts",
+              video: "https://www.youtube.com/watch?v=9GyTQRTmZdk",
+              course: "types-of-text",
+              summary:
+                "Understand how expository texts provide information and explanations through clear and factual writing.",
             },
             {
-              name: "Persuasive Texts",
-              url: "https://www.youtube.com/watch?v=8Pa7Vyrn8y8",
-              summary:
-                "Persuasive texts are designed to convince the reader of a particular viewpoint. They use rhetorical devices, evidence, and strong arguments to achieve their goal.",
+              title: "Persuasive Texts",
+              minutes: 16,
+              img: "https://i.ytimg.com/vi/8Pa7Vyrn8y8/maxresdefault.jpg",
               completed: false,
+              url: "/course/types-of-text/persuasive-texts",
+              video: "https://www.youtube.com/watch?v=8Pa7Vyrn8y8",
+              course: "types-of-text",
+              summary:
+                "Discover the techniques used in persuasive texts to convince readers through logical arguments and emotional appeal.",
             },
           ],
+          video: "https://www.youtube.com/embed/-LULx42tOA4",
+          summary:
+            "Texts come in a variety of forms, each serving a unique purpose and audience. Broadly, texts can be classified as narrative, descriptive, expository, or persuasive. Narrative texts tell stories, often focusing on characters and events, while descriptive texts aim to create vivid imagery for the reader. Expository texts are informative, presenting facts, explanations, or instructions, and persuasive texts are designed to convince the audience of a particular viewpoint or action. Understanding the different types of text is essential for effective communication, as it allows writers to choose the most appropriate structure and style for their message.",
+          completed: false,
         },
       },
       email

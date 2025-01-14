@@ -102,6 +102,8 @@ function PageContent() {
       );
 
       setCourses(coursesContent);
+      console.log(coursesContent);
+      
     };
 
     checkUser();
