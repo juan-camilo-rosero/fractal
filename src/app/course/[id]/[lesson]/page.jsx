@@ -11,7 +11,7 @@ import { isUserLoggedIn } from "@/lib/auth_functions";
 import { useContext, useEffect, useState } from "react";
 import { getDocument } from "@/lib/db_functions";
 import { useParams } from "next/navigation";
-import CoursesIndex from "@/components/courses/CoursesIndex";
+import LessonSection from "@/components/courses/LessonSection";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -140,6 +140,7 @@ function PageContent() {
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
+            <LessonSection id={id} lesson={lesson}/>
           </div>
         </SidebarInset>
       </div>

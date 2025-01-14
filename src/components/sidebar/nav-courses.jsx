@@ -46,6 +46,8 @@ export function NavProjects() {
   const courses = useContext(CoursesContext);
 
   const coursesData = Object.keys(courses).map((key) => courses[key]);
+  console.log(coursesData[0]);
+  
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
@@ -69,10 +71,10 @@ export function NavProjects() {
               <CollapsibleContent>
                 <SidebarMenuSub>
                   {course.lessons?.map((subItem) => (
-                    <SidebarMenuSubItem key={subItem.name}>
+                    <SidebarMenuSubItem key={subItem.title}>
                       <SidebarMenuSubButton asChild>
                         <a href={subItem.url}>
-                          <span className="text-base">{subItem.name}</span>
+                          <span className="text-base">{subItem.title}</span>
                         </a>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
