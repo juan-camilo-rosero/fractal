@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LessonProgress from "./LessonProgress";
 import { CoursesContext } from "@/context/CoursesContext";
 import Button from "@/components/general/Button";
@@ -22,13 +22,15 @@ const handleCompleted = async (id, url, lessons, email, setIsLoading) => {
       throw new Error("No course data found.");
     }
 
+    let courseLessons = {};
+
     Object.keys(coursesData).forEach((course, index) => {
       if (coursesData[course].url === id) {
         currentCourse = index;
         const updatedLessons = lessons.map((lesson, index) => {
           if (lesson.url === url) {
-            currentLesson = index; // Asignar índice actual.
-            length = coursesData[course].lessons.length; // Longitud total de lecciones.
+            currentLesson = index;
+            length = coursesData[course].lessons.length;
             return {
               ...lesson,
               completed: true,
@@ -37,7 +39,19 @@ const handleCompleted = async (id, url, lessons, email, setIsLoading) => {
           return lesson;
         });
         coursesData[course].lessons = updatedLessons;
+        courseLessons = updatedLessons;
       }
+    });
+
+    let completedLessons = 0;
+
+    courseLessons.forEach((lesson) => {
+      if (lesson.completed) completedLessons++;
+    });
+
+    Object.keys(coursesData).forEach((course) => {
+      if (coursesData[course].url === id)
+        coursesData[course].completedLessons = completedLessons;
     });
 
     // Validar que `currentLesson` tenga un valor válido.
@@ -61,16 +75,31 @@ const handleCompleted = async (id, url, lessons, email, setIsLoading) => {
     if (currentLesson === length - 1) {
       location.href = "/dashboard";
     } else {
-      location.href = `${coursesData[currentCourse].lessons[currentLesson + 1].url}`;
+      location.href = `${
+        coursesData[currentCourse].lessons[currentLesson + 1].url
+      }`;
     }
   }
 };
 
 function LessonsProgress() {
   const [isLoading, setIsLoading] = useState(false);
+  const [completedLessons, setCompletedLessons] = useState(0);
+  const [precentage, setPrecentage] = useState(0);
+  const [totalLessons, setTotalLessons] = useState(0);
   const { id, lesson } = useParams();
   const { lessons, url } = useContext(CoursesContext);
   const { email } = useContext(UserContext);
+
+  useEffect(() => {
+    let count = 0;
+    lessons.forEach((lesson) => {
+      if (lesson.completed) count++;
+    });
+    setCompletedLessons(count);
+    setTotalLessons(lessons.length);
+    setPrecentage(Math.round(count * 100 / lessons.length))
+  }, [lessons]);
 
   return (
     <div className="w-full bg-fgray-200 p-5 rounded-xl lg:flex lg:flex-col lg:items-center lg:px-0">
@@ -78,10 +107,14 @@ function LessonsProgress() {
         Lesson completion
       </h2>
       <div className="w-full flex flex-col my-4 lg:w-4/5">
-        <div className="w-full h-2 bg-fgray-100 rounded-full mb-1 lg:mb-2" />
+        <div className="w-full h-2 bg-fgray-100 rounded-full mb-1 lg:mb-2">
+          <div className={`h-1 rounded-full w-[${precentage}%] bg-fblue-700`}></div>
+        </div>
         <div className="flex items-center justify-between text-fgray-800 text-sm font-semibold">
-          <p>25% completed</p>
-          <p>1/4 lessons</p>
+          <p>{precentage}% completed</p>
+          <p>
+            {completedLessons}/{totalLessons} lessons
+          </p>
         </div>
       </div>
       <div className="flex flex-col gap-4 lg:max-h-[50vh] lg:overflow-y-auto py-3 rounded-xl lg:w-4/5">

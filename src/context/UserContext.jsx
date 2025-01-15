@@ -5,16 +5,16 @@ import { createContext, useState } from "react";
 export const UserContext = createContext();
 
 export function UserContextProvider(props) {
-  const [email, setEmail] = useState("juroseros@unal.edu.co");
-  const [username, setUsername] = useState("Juan Camilo");
-  const [lastName, setLastName] = useState(undefined);
-  const [exam, setExam] = useState(undefined);
-  const [examDate, setExamDate] = useState(undefined);
-  const [phone, setPhone] = useState(undefined);
-  const [profilePic, setProfilePic] = useState(undefined);
-  const [school, setSchool] = useState(undefined);
-  const [freeTime, setFreeTime] = useState(undefined);
-  const [preparation, setPreparation] = useState(undefined);
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [exam, setExam] = useState("");
+  const [examDate, setExamDate] = useState("");
+  const [phone, setPhone] = useState("");
+  const [profilePic, setProfilePic] = useState("");
+  const [school, setSchool] = useState("");
+  const [freeTime, setFreeTime] = useState("");
+  const [preparation, setPreparation] = useState("");
 
   return (
     <UserContext.Provider
