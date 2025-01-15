@@ -18,7 +18,7 @@ const courses = {
     type: "math",
     url: "functions",
     totalLessons: 3,
-    completedLessons: 1,
+    completedLessons: 0,
     lessons: [
       {
         title: "Linear Functions",
@@ -332,7 +332,7 @@ function PageContent() {
             Welcome to <span className="text-fred-700">Fractal</span>
           </h1>
           <h2 className="text-fgray-600 text-center mt-10 font-semibold md:text-xl">
-            Before we get started, we'd love to get to know you a little bit so
+            Before we get started, we&apos;d love to get to know you a little bit so
             we can tailor the content to your unique needs.
           </h2>
           <Button
