@@ -1,6 +1,6 @@
 "use client";
 import { RiCloseCircleFill, RiLock2Fill, RiMailFill } from "react-icons/ri";
-import FormInput from "./FormInput";
+import FormInput from "../general/FormInput";
 import Button from "../general/Button";
 import { useContext, useState } from "react";
 import { SectionContext } from "@/context/SectionContext";

@@ -8,7 +8,7 @@ import { addDocumentWithCustomId, deleteDocument } from "./db_functions";
 export const createUser = async (email) => {
   try {
     // Create a document in the courses collection
-    await addDocumentWithCustomId(
+   /* await addDocumentWithCustomId(
       "courses",
       {
         0: {
@@ -148,7 +148,7 @@ export const createUser = async (email) => {
         },
       },
       email
-    );
+    );*/
 
     // Create a document in the progress collection
     await addDocumentWithCustomId("progress", { statistics: {} }, email);

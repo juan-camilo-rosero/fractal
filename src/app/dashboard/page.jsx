@@ -84,6 +84,12 @@ function PageContent() {
 
       const userData = await getUser(res.email);
       const coursesData = await getCourses(res.email);
+
+      if (!coursesData || Object.keys(coursesData).length === 0) {
+        window.location.href = "/onboarding";
+        return;
+      }
+
       const progressData = await getProgress(res.email);
 
       setPhone(userData.phone);

@@ -74,7 +74,7 @@ function PageContent() {
     setSchool,
     setProfilePic,
   } = useContext(UserContext);
-  const { setCourses } = useContext(CoursesContext);
+  const { setCourses, setUrl } = useContext(CoursesContext);
   const [user, setUser] = useState(null);
   const { id, lesson } = useParams();
 
@@ -107,6 +107,7 @@ function PageContent() {
       );
 
       setCourses(coursesContent);
+      setUrl(`/course/${id}/${lesson}`)
     };
 
     checkUser();
