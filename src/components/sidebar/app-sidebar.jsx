@@ -70,7 +70,7 @@ export function AppSidebar({ ...props }) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <div className="w-full py-6 flex items-center justify-center bg-fgray-200">
-        <img src="/logo/icon.png" alt="Logo fractal" className="h-6 md:h-8" />
+        <img src="/logo/logo_talkie.png" alt="Logo talkie" className="h-6 md:h-8" />
       </div>
       <SidebarContent className="bg-fgray-200">
         <NavMain items={data.navMain} />
