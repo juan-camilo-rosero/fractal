@@ -14,7 +14,7 @@ export const courses = {
           title: "Linear Functions",
           minutes: 16,
           img: "https://i.ytimg.com/vi/BtcKotD6Ni8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDhv8645uoEJ8-Ej-n1uwhLcGEyGg",
-          completed: true,
+          completed: false,
           url: "/course/functions/linear-functions",
           video: "https://www.youtube.com/embed/BtcKotD6Ni8",
           course: "functions",
