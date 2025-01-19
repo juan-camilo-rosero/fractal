@@ -103,17 +103,20 @@ function PageContent() {
 
   const handleSend = async (e) => {
     setIsLoading(true);
-
+  
     try {
-      const newCourses = selectedCourses.map((course) => courses[course]);
-
+      const newCourses = selectedCourses.map((courseName) => {
+        const { icon, ...courseWithoutIcon } = courses[courseName];
+        return courseWithoutIcon;
+      });
+  
       const coursesObject = newCourses.reduce((acc, course, index) => {
         acc[index] = course;
         return acc;
       }, {});
-
+  
       console.log(email);
-
+  
       await updateDocument("users", email, {
         username,
         lastName,
@@ -122,17 +125,18 @@ function PageContent() {
         exam,
         examDate,
       });
-
+  
       await addDocumentWithCustomId("courses", coursesObject, email);
-
+  
       window.location.href = "/dashboard";
     } catch (error) {
       console.error("Error al enviar los datos:", error);
       alert("Hubo un problema al procesar la información. Intenta de nuevo.");
     } finally {
-      setIsLoading(true);
+      setIsLoading(false);
     }
   };
+  
 
   const toggleCourseSelection = (courseName) => {
     setSelectedCourses((prevSelectedCourses) =>
