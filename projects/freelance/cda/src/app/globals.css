@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cda-green-500: oklch(74.87% 0.1847 124.66);
+  --color-cda-blue-700: oklch(37.07% 0.1162 274.29);
+  --color-cda-gray-300: oklch(93.1% 0 0);
+}
+
+.link{
+  @apply text-gray-600 hover:text-cda-blue-700 transition-all
+}
+
+.button{
+  @apply text-center w-full rounded-lg py-4 lg:py-3
+}
+
+.padding{
+  @apply px-[7.5vw] md:px-[10vw] lg:px-[5vw]
+}
+
+.section-title{
+  @apply text-cda-blue-700 text-center font-semibold text-3xl
+}
