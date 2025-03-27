@@ -11,7 +11,7 @@ function Header() {
   const handleOpenLogin = e => setLoginOpen(true)
   return (
     <header className="bg-fgray-200 w-screen px-8 py-4 fixed header-shadow flex flex-row  items-center justify-between md:px-16 lg:py-3 z-30">
-      <img src="/logo/icon.png" alt="Logo fractal" className="h-6 md:h-8"/>
+      <img src="/logo/icon.png" alt="Logo fractal" className="h-5 md:h-6"/>
       <button className="md:hidden">
         <RiMenu3Fill className="text-fred-700 text-3xl"/>
       </button>
