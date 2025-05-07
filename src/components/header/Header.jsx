@@ -16,8 +16,8 @@ function Header() {
         <RiMenu3Fill className="text-fred-700 text-3xl"/>
       </button>
       <div className="hidden md:flex md:flex-row md:gap-8">
-        <Button text="Login" type="secondary" func={handleOpenLogin}/>
-        <Button text="Sign up" type="primary" func={handleOpenSignup}/>
+        <Button text="Iniciar sesión" type="secondary" func={handleOpenLogin}/>
+        <Button text="Crea tu cuenta" type="primary" func={handleOpenSignup}/>
       </div>
     </header>
   );

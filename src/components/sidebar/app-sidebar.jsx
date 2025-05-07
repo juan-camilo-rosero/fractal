@@ -20,7 +20,7 @@ import { RiHome3Fill, RiLineChartFill } from "react-icons/ri";
 const data = {
   user: {
     name: "juanca",
-    email: "m@example.com",
+    email: "juanca@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
@@ -30,32 +30,32 @@ const data = {
       icon: RiHome3Fill,
     },
     {
-      name: "Statistics",
+      name: "Estadísticas",
       url: "#",
       icon: RiLineChartFill,
     },
   ],
   courses: [
     {
-      title: "Functions",
+      title: "Funciones",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: "Lineal functions",
+          title: "Funciones lineales",
           url: "#",
         },
         {
-          title: "Quadratic functions",
+          title: "Funciones cuadráticas",
           url: "#",
         },
         {
-          title: "Rational functions",
+          title: "Funciones racionales",
           url: "#",
         },
         {
-          title: "Exponential functions",
+          title: "Funciones exponenciales",
           url: "#",
         },
       ],

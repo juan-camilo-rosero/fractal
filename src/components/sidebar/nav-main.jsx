@@ -11,7 +11,7 @@ import {
 export function NavMain({ items }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel className="text-lg">Platform</SidebarGroupLabel>
+      <SidebarGroupLabel className="text-lg">Plataforma</SidebarGroupLabel>
       <SidebarMenu className="mt-2 gap-2">
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>

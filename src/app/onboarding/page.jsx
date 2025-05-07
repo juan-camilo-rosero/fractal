@@ -59,19 +59,19 @@ function PageContent() {
 
   const validateSection1 = () => {
     if (!username) {
-      alert("Name is required.");
+      alert("El nombre es obligatorio.");
       return false;
     }
     if (!lastName) {
-      alert("Last name is required.");
+      alert("El apellido es obligatorio.");
       return false;
     }
     if (!phone) {
-      alert("Phone number is required.");
+      alert("El número de teléfono es obligatorio.");
       return false;
     }
     if (!school) {
-      alert("Please select a school.");
+      alert("Por favor selecciona un colegio.");
       return false;
     }
     return true;
@@ -79,11 +79,11 @@ function PageContent() {
 
   const validateSection2 = () => {
     if (!exam) {
-      alert("Please select an exam.");
+      alert("Por favor selecciona un examen.");
       return false;
     }
     if (!examDate) {
-      alert("Please select an exam date.");
+      alert("Por favor selecciona una fecha de examen.");
       return false;
     }
     return true;
@@ -103,20 +103,20 @@ function PageContent() {
 
   const handleSend = async (e) => {
     setIsLoading(true);
-  
+
     try {
       const newCourses = selectedCourses.map((courseName) => {
         const { icon, ...courseWithoutIcon } = courses[courseName];
         return courseWithoutIcon;
       });
-  
+
       const coursesObject = newCourses.reduce((acc, course, index) => {
         acc[index] = course;
         return acc;
       }, {});
-  
+
       console.log(email);
-  
+
       await updateDocument("users", email, {
         username,
         lastName,
@@ -125,9 +125,9 @@ function PageContent() {
         exam,
         examDate,
       });
-  
+
       await addDocumentWithCustomId("courses", coursesObject, email);
-  
+
       window.location.href = "/dashboard";
     } catch (error) {
       console.error("Error al enviar los datos:", error);
@@ -136,7 +136,6 @@ function PageContent() {
       setIsLoading(false);
     }
   };
-  
 
   const toggleCourseSelection = (courseName) => {
     setSelectedCourses((prevSelectedCourses) =>
@@ -151,14 +150,13 @@ function PageContent() {
       {section === 0 && (
         <section className="w-full h-full flex flex-col items-center justify-center p-5 md:w-3/4 lg:w-1/2">
           <h1 className="text-center text-3xl font-bold text-fblue-700 lg:text-5xl">
-            Welcome to <span className="text-fred-700">Fractal</span>
+            Bienvenido a <span className="text-fred-700">Fractal</span>
           </h1>
           <h2 className="text-fgray-600 text-center mt-10 font-semibold md:text-xl">
-            Before we get started, we&apos;d love to get to know you a little
-            bit so we can tailor the content to your unique needs.
+            Antes de comenzar, nos gustaría conocerte un poco para poder adaptar el contenido a tus necesidades.
           </h2>
           <Button
-            text="Continue"
+            text="Continuar"
             type="primary"
             size="xl"
             func={() => setSection(1)}
@@ -171,14 +169,14 @@ function PageContent() {
           <div className="w-full flex flex-col items-center pt-8 gap-6 lg:gap-10">
             <div className="w-full flex flex-col gap-6 lg:flex-row lg:gap-24">
               <FormInput
-                labelText="Name"
+                labelText="Nombre"
                 value={username}
                 setValue={setUsername}
                 placeholder=""
                 type="text"
               />
               <FormInput
-                labelText="Last name"
+                labelText="Apellido"
                 value={lastName}
                 setValue={setLastName}
                 type="text"
@@ -186,34 +184,34 @@ function PageContent() {
             </div>
             <div className="w-full flex flex-col gap-6 lg:flex-row lg:gap-24">
               <FormInput
-                labelText="Phone number"
+                labelText="Teléfono"
                 value={phone}
                 setValue={setPhone}
                 type="tel"
               />
               <FormSelection
-                labelText="School"
+                labelText="Colegio"
                 value={school}
                 setValue={setSchool}
                 id="school"
                 options={[
-                  { value: "cambridge_school", label: "Cambridge School" },
-                  { value: "oxford_school", label: "Oxford School" },
-                  { value: "harvard_school", label: "Harvard School" },
-                  { value: "purdue_school", label: "Purdue School" },
+                  { value: "cambridge_school", label: "Colegio Telefónica" },
+                  { value: "oxford_school", label: "Colegio UNAL" },
+                  { value: "harvard_school", label: "Colegio Uniandes" },
+                  { value: "purdue_school", label: "Colegio Alpina" },
                 ]}
               />
             </div>
             <div className="w-full flex flex-col gap-6 lg:flex-row-reverse lg:gap-10 lg:mt-6 lg:justify-start">
               <Button
-                text="continue"
+                text="Continuar"
                 type="primary"
                 size="xl"
                 func={handleContinueSection1}
                 aditionalStyles={`w-full py-3 mt-12 transition-all lg:w-auto lg:px-16 lg:py-2 lg:mt-0`}
               />
               <Button
-                text="return"
+                text="Regresar"
                 type="secondary"
                 size="xl"
                 func={() => setSection(0)}
@@ -228,7 +226,7 @@ function PageContent() {
           <div className="w-full flex flex-col items-center pt-8 gap-6 lg:gap-10">
             <div className="w-full flex flex-col gap-6 lg:flex-row lg:gap-24">
               <FormSelection
-                labelText="What exam will you present?"
+                labelText="¿Qué examen presentarás?"
                 value={exam}
                 setValue={setExam}
                 id="exam"
@@ -238,7 +236,7 @@ function PageContent() {
                 ]}
               />
               <FormSelection
-                labelText="When will you present it?"
+                labelText="¿Cuándo lo presentarás?"
                 value={examDate}
                 setValue={setExamDate}
                 id="examDate"
@@ -252,14 +250,14 @@ function PageContent() {
             </div>
             <div className="w-full flex flex-col gap-6 lg:flex-row-reverse lg:gap-10 lg:mt-6 lg:justify-start">
               <Button
-                text="Continue"
+                text="Continuar"
                 type="primary"
                 size="xl"
                 func={handleContinueSection2}
                 aditionalStyles={`w-full py-3 mt-12 transition-all lg:w-auto lg:px-16 lg:py-2 lg:mt-0`}
               />
               <Button
-                text="Return"
+                text="Regresar"
                 type="secondary"
                 size="xl"
                 func={() => setSection(1)}
@@ -272,7 +270,7 @@ function PageContent() {
       {section === 3 && (
         <section className="w-full h-full flex flex-col items-center justify-center p-5 md:w-1/2 lg:w-2/3">
           <h3 className="text-3xl font-semibold text-fgray-800 text-center">
-            What do you want to learn?
+            ¿Qué te gustaría aprender?
           </h3>
           <div className="w-full flex mt-12 flex-col gap-6 lg:flex-row lg:flex-wrap lg:gap-6 lg:justify-between">
             {Object.keys(courses).map((courseName) => {
@@ -306,7 +304,7 @@ function PageContent() {
 
           <div className="w-full flex flex-col md:flex-row gap-6 mt-12 lg:flex-row-reverse">
             <Button
-              text={isLoading ? "Loading..." : "Continue"}
+              text={isLoading ? "Cargando..." : "Continuar"}
               type="primary"
               size="xl"
               func={handleSend}
@@ -314,7 +312,7 @@ function PageContent() {
               disabled={isLoading}
             />
             <Button
-              text="Return"
+              text="Regresar"
               type="secondary"
               size="xl"
               func={() => setSection(2)}

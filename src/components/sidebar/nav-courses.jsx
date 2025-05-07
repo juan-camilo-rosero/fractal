@@ -49,7 +49,7 @@ export function NavProjects() {
   
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel className="text-lg">My courses</SidebarGroupLabel>
+      <SidebarGroupLabel className="text-lg">Mis cursos</SidebarGroupLabel>
       <SidebarMenu>
         {coursesData[0].map((course, index) => (
           <Collapsible

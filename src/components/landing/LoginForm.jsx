@@ -59,7 +59,7 @@ function LoginForm() {
     >
       <div className="w-full flex items-center justify-between">
         <h2 className="text-2xl font-semibold text-fblue-700">
-          Login to your account
+          Ingresa a tu cuenta
         </h2>
         <RiCloseCircleFill
           className="text-3xl text-fblue-700 relative cursor-pointer"
@@ -71,12 +71,12 @@ function LoginForm() {
           labelText="email"
           value={email}
           setValue={setEmail}
-          placeholder="yourmail@gmail.com"
+          placeholder="tucorreo@gmail.com"
           icon={<RiMailFill />}
           type="text"
         />
         <FormInput
-          labelText="password"
+          labelText="contraseña"
           value={password}
           setValue={setPassword}
           icon={<RiLock2Fill />}
@@ -88,7 +88,7 @@ function LoginForm() {
           </p>
         )}
         <Button
-          text={loading ? "loading..." : "continue"}
+          text={loading ? "cargando..." : "continuar"}
           disabled={loading}
           type="primary"
           size="xl"

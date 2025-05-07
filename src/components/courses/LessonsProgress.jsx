@@ -104,16 +104,16 @@ function LessonsProgress() {
   return (
     <div className="w-full bg-fgray-200 p-5 rounded-xl lg:flex lg:flex-col lg:items-center lg:px-0">
       <h2 className="text-2xl font-semibold mb-4 text-center w-full text-fblue-700">
-        Lesson completion
+        Avance de la lección
       </h2>
       <div className="w-full flex flex-col my-4 lg:w-4/5">
         <div className="w-full h-2 bg-fgray-100 rounded-full mb-1 lg:mb-2">
           <div className={`h-1 rounded-full w-[${precentage}%] bg-fblue-700`}></div>
         </div>
         <div className="flex items-center justify-between text-fgray-800 text-sm font-semibold">
-          <p>{precentage}% completed</p>
+          <p>{precentage}% completado</p>
           <p>
-            {completedLessons}/{totalLessons} lessons
+            {completedLessons}/{totalLessons} lecciones
           </p>
         </div>
       </div>
@@ -123,7 +123,7 @@ function LessonsProgress() {
         ))}
       </div>
       <Button
-        text={`${isLoading ? "Loading..." : "Mark as finished"}`}
+        text={`${isLoading ? "Cargando..." : "Marcar como finalizado"}`}
         type="primary"
         size="xl"
         disabled={isLoading}

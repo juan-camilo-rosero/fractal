@@ -10,17 +10,17 @@ function HeroSection() {
   const { setSignUpOpen, setLoginOpen } = useContext(SectionContext);
   return (
     <section className="w-screen min-h-screen pt-20 px-8 flex flex-col items-center justify-center md:w-2/3 md:mx-auto lg:pt-32">
-        <h1 className="text-center text-3xl font-bold text-fblue-700  lg:text-5xl">University preparation with a <span className="text-fred-700">tailor-made</span> study plan for you</h1>
-        <h2 className="text-fgray-600 text-center mt-10 font-semibold md:text-xl">A unique study path, created to improve your key areas and maximize your chances of getting into the university of your dreams.</h2>
+        <h1 className="text-center text-3xl font-bold text-fblue-700  lg:text-5xl">Preparación universitaria con un plan de estudio creado <span className="text-fred-700">especialmente para ti</span></h1>
+        <h2 className="text-fgray-600 text-center mt-10 font-semibold md:text-xl">Creamos la ruta de aprendizaje para que puedas ingresar a la universidad de tus sueños.</h2>
         <div className='w-full mt-8 flex flex-col items-center gap-6 md:mt-20 lg:flex-row lg:gap-12 lg:justify-center lg:mt-12'>
-            <Button text="Sign up" type="primary" size="xl" func={e => setSignUpOpen(true)
+            <Button text="Crea tu cuenta" type="primary" size="xl" func={e => setSignUpOpen(true)
             } aditionalStyles='w-full lg:w-auto lg:text-xl lg:px-16'/>
-            <Button text="Login" type="secondary" size="xl" func={e => setLoginOpen(true)
+            <Button text="Inicia sesión" type="secondary" size="xl" func={e => setLoginOpen(true)
             } aditionalStyles='w-full lg:w-auto lg:text-xl lg:px-16'/>
         </div>
         <div className='w-screen mt-20 flex flex-col items-center gap-6'>
-          <InfiniteScroller words={["probability", "genetics", "globalization", "periodic table", "phrasal verbs", "human rights", "industrial revolution", "trigonometry", "paragraph types", "cold war", "thermodynamics"]}/>
-          <InfiniteScroller words={["literary analysis", "microeconomics", "cell biology", "art history","photosynthesis", "ancient civilizations", "calculus", "climate change", "classical mechanics", "world history", "human anatomy", "philosophy"]} direction='right'/>
+          <InfiniteScroller words={["análisis literario", "microeconomía", "biología celular", "historia del arte", "fotosíntesis", "civilizaciones antiguas", "cálculo", "cambio climático", "mecánica clásica", "historia mundial", "anatomía humana", "filosofía"]}/>
+          <InfiniteScroller words={["probabilidad", "genética", "globalización", "tabla periódica", "verbos compuestos", "derechos humanos", "revolución industrial", "trigonometría", "tipos de párrafos", "guerra fría", "termodinámica"]} direction='right'/>
         </div>
     </section>
   )
