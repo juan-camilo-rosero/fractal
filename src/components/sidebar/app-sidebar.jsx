@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useContext } from "react";
 import { UserContext } from "@/context/UserContext";
-import { RiHome3Fill, RiLineChartFill } from "react-icons/ri";
+import { RiHome3Fill, RiLineChartFill, RiListCheck3 } from "react-icons/ri";
 
 const data = {
   user: {
@@ -33,6 +33,11 @@ const data = {
       name: "Estadísticas",
       url: "#",
       icon: RiLineChartFill,
+    },
+    {
+      name: "Exámen de clasificación",
+      url: "/dashboard/examen",
+      icon: RiListCheck3,
     },
   ],
   courses: [

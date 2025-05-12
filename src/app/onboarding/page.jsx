@@ -11,7 +11,7 @@ import {
   updateDocument,
 } from "@/lib/db_functions";
 import { isUserLoggedIn } from "@/lib/auth_functions";
-import { courses } from "./courses";
+import { vocationalFields, getFieldCourses } from "./courses";
 
 const findUser = async () => {
   try {
@@ -26,6 +26,7 @@ const findUser = async () => {
 function PageContent() {
   const [section, setSection] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedField, setSelectedField] = useState(null);
   const [selectedCourses, setSelectedCourses] = useState([]);
   const {
     username,
@@ -89,6 +90,14 @@ function PageContent() {
     return true;
   };
 
+  const validateSection3 = () => {
+    if (!selectedField) {
+      alert("Por favor selecciona un campo vocacional.");
+      return false;
+    }
+    return true;
+  };
+
   const handleContinueSection1 = () => {
     if (validateSection1()) {
       setSection(2);
@@ -101,21 +110,31 @@ function PageContent() {
     }
   };
 
+  const handleContinueSection3 = () => {
+    if (validateSection3()) {
+      setSection(4);
+    }
+  };
+
   const handleSend = async (e) => {
     setIsLoading(true);
 
     try {
-      const newCourses = selectedCourses.map((courseName) => {
-        const { icon, ...courseWithoutIcon } = courses[courseName];
+      // Obtengo los cursos del campo seleccionado
+      const fieldCourses = getFieldCourses(selectedField);
+      
+      // Filtro los cursos seleccionados
+      const coursesToSave = selectedCourses.map(courseName => {
+        const course = fieldCourses[courseName];
+        // Elimino el ícono que no es serializable para Firestore
+        const { icon, ...courseWithoutIcon } = course;
         return courseWithoutIcon;
       });
 
-      const coursesObject = newCourses.reduce((acc, course, index) => {
+      const coursesObject = coursesToSave.reduce((acc, course, index) => {
         acc[index] = course;
         return acc;
       }, {});
-
-      console.log(email);
 
       await updateDocument("users", email, {
         username,
@@ -124,6 +143,7 @@ function PageContent() {
         school,
         exam,
         examDate,
+        vocationalField: selectedField,
       });
 
       await addDocumentWithCustomId("courses", coursesObject, email);
@@ -144,6 +164,11 @@ function PageContent() {
         : [...prevSelectedCourses, courseName]
     );
   };
+
+  // Reiniciar cursos seleccionados cuando cambie el campo
+  useEffect(() => {
+    setSelectedCourses([]);
+  }, [selectedField]);
 
   return (
     <div className="flex justify-center items-center w-screen min-h-screen bg-fgray-100">
@@ -269,12 +294,77 @@ function PageContent() {
       )}
       {section === 3 && (
         <section className="w-full h-full flex flex-col items-center justify-center p-5 md:w-1/2 lg:w-2/3">
-          <h3 className="text-3xl font-semibold text-fgray-800 text-center">
-            ¿Qué te gustaría aprender?
+          <h3 className="text-3xl font-semibold text-fgray-800 text-center mb-4">
+            ¿Qué campo te llama más la atención?
           </h3>
-          <div className="w-full flex mt-12 flex-col gap-6 lg:flex-row lg:flex-wrap lg:gap-6 lg:justify-between">
-            {Object.keys(courses).map((courseName) => {
-              const { name, icon } = courses[courseName];
+          <p className="text-fgray-600 text-center mb-8">
+            Selecciona el área que más te interese para que podamos recomendarte contenido relevante
+          </p>
+          <div className="w-full flex flex-col gap-4 lg:flex-row lg:flex-wrap lg:gap-4 lg:justify-between">
+            {Object.keys(vocationalFields).map((fieldKey) => {
+              const field = vocationalFields[fieldKey];
+              const isSelected = selectedField === fieldKey;
+
+              return (
+                <figure
+                  key={fieldKey}
+                  className={`w-full lg:w-[48%] p-4 rounded-lg border-2 ${
+                    isSelected
+                      ? "bg-fgray-200 border-fgray-400 text-fblue-700"
+                      : "border-fgray-400 text-fgray-800"
+                  } flex items-center cursor-pointer transition-all`}
+                  onClick={() => setSelectedField(fieldKey)}
+                >
+                  <div
+                    className={`${
+                      isSelected
+                        ? "bg-fblue-700 text-fgray-200"
+                        : "bg-fgray-200 text-fgray-800"
+                    } w-12 h-12 rounded-lg mr-6 flex-shrink-0 flex items-center justify-center text-2xl`}
+                  >
+                    {field.icon}
+                  </div>
+                  <div>
+                    <p className="text-xl font-semibold">{field.name}</p>
+                    <p className="text-sm text-fgray-600">{field.description}</p>
+                  </div>
+                </figure>
+              );
+            })}
+          </div>
+
+          <div className="w-full flex flex-col md:flex-row gap-6 mt-12 lg:flex-row-reverse">
+            <Button
+              text="Continuar"
+              type="primary"
+              size="xl"
+              func={handleContinueSection3}
+              aditionalStyles="w-full lg:w-auto lg:px-16"
+            />
+            <Button
+              text="Regresar"
+              type="secondary"
+              size="xl"
+              func={() => setSection(2)}
+              aditionalStyles="w-full lg:w-auto lg:px-16"
+            />
+          </div>
+        </section>
+      )}
+      {section === 4 && (
+        <section className="w-full h-full flex flex-col items-center justify-center p-5 md:w-1/2 lg:w-2/3">
+          <h3 className="text-3xl font-semibold text-fgray-800 text-center mb-2">
+            Cursos recomendados
+          </h3>
+          <p className="text-fgray-600 text-center mb-8">
+            {selectedField === "undecided" 
+              ? "Estos cursos te ayudarán a descubrir tus intereses y habilidades" 
+              : `Selecciona los cursos que te interesen en el área de ${vocationalFields[selectedField].name.toLowerCase()}`}
+          </p>
+          
+          <div className="w-full flex mt-6 flex-col gap-4 lg:flex-row lg:flex-wrap lg:gap-6 lg:justify-between">
+            {Object.keys(getFieldCourses(selectedField)).map((courseName) => {
+              const course = getFieldCourses(selectedField)[courseName];
               const isSelected = selectedCourses.includes(courseName);
 
               return (
@@ -294,9 +384,12 @@ function PageContent() {
                         : "bg-fgray-200 text-fgray-800"
                     } w-12 h-12 rounded-lg mr-6 flex-shrink-0 flex items-center justify-center text-2xl`}
                   >
-                    {icon}
+                    {course.icon}
                   </div>
-                  <p className="text-2xl font-semibold">{name}</p>
+                  <div>
+                    <p className="text-xl font-semibold">{course.name}</p>
+                    <p className="text-sm text-fgray-600 line-clamp-2">{course.summary}</p>
+                  </div>
                 </figure>
               );
             })}
@@ -315,7 +408,7 @@ function PageContent() {
               text="Regresar"
               type="secondary"
               size="xl"
-              func={() => setSection(2)}
+              func={() => setSection(3)}
               aditionalStyles="w-full lg:w-auto lg:px-16"
             />
           </div>
