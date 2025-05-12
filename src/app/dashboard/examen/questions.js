@@ -1,7 +1,7 @@
 export const preguntasICFES = [
-  // Razonamiento Cuantitativo
+  // Matemáticas
   {
-    area: "Razonamiento Cuantitativo",
+    area: "Matemáticas",
     enunciado:
       "Si un automóvil recorre 60 kilómetros en 1 hora, ¿cuántos kilómetros recorrerá en 2 horas y media a la misma velocidad?",
     opciones: {
@@ -13,7 +13,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "b",
   },
   {
-    area: "Razonamiento Cuantitativo",
+    area: "Matemáticas",
     enunciado:
       "Un rectángulo tiene un perímetro de 60 cm y una base de 15 cm. ¿Cuál es la altura del rectángulo?",
     opciones: {
@@ -25,7 +25,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "c",
   },
   {
-    area: "Razonamiento Cuantitativo",
+    area: "Matemáticas",
     enunciado: "Si el 20% de un número es 50, ¿cuál es el número?",
     opciones: {
       a: "250",
@@ -36,7 +36,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "a",
   },
   {
-    area: "Razonamiento Cuantitativo",
+    area: "Matemáticas",
     enunciado:
       "Una tienda ofrece un descuento del 15% en un artículo que cuesta $200.000. ¿Cuál es el precio final del artículo con el descuento?",
     opciones: {
@@ -48,7 +48,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "b",
   },
   {
-    area: "Razonamiento Cuantitativo",
+    area: "Matemáticas",
     enunciado:
       "Si una persona ahorra $500.000 mensuales, ¿cuánto habrá ahorrado al cabo de un año?",
     opciones: {
@@ -60,9 +60,9 @@ export const preguntasICFES = [
     respuestaCorrecta: "a",
   },
 
-  // Competencias Ciudadanas
+  // Ciencias Sociales
   {
-    area: "Competencias Ciudadanas",
+    area: "Ciencias Sociales",
     enunciado:
       "La Constitución Política de Colombia establece que la educación es:",
     opciones: {
@@ -74,7 +74,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "b",
   },
   {
-    area: "Competencias Ciudadanas",
+    area: "Ciencias Sociales",
     enunciado: "El respeto por la diversidad cultural implica:",
     opciones: {
       a: "Aceptar y valorar las diferencias culturales entre las personas.",
@@ -85,7 +85,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "a",
   },
   {
-    area: "Competencias Ciudadanas",
+    area: "Ciencias Sociales",
     enunciado: "La participación ciudadana en una democracia se refiere a:",
     opciones: {
       a: "La obligación de votar en todas las elecciones.",
@@ -96,7 +96,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "b",
   },
   {
-    area: "Competencias Ciudadanas",
+    area: "Ciencias Sociales",
     enunciado: "El Estado de Derecho se caracteriza por:",
     opciones: {
       a: "La concentración del poder en una sola persona.",
@@ -107,7 +107,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "c",
   },
   {
-    area: "Competencias Ciudadanas",
+    area: "Ciencias Sociales",
     enunciado:
       "La corrupción en la administración pública afecta negativamente a la sociedad porque:",
     opciones: {
@@ -118,9 +118,9 @@ export const preguntasICFES = [
     },
     respuestaCorrecta: "a",
   },
-  // Comunicación Escrita
+  // Lectura Crítica
   {
-    area: "Comunicación Escrita",
+    area: "Lectura Crítica",
     enunciado:
       "¿Cuál de las siguientes opciones presenta una redacción coherente y gramaticalmente correcta?",
     opciones: {
@@ -132,7 +132,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "c",
   },
   {
-    area: "Comunicación Escrita",
+    area: "Lectura Crítica",
     enunciado: "¿Cuál es el propósito principal de un texto argumentativo?",
     opciones: {
       a: "Narrar una historia de ficción.",
@@ -143,7 +143,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "c",
   },
   {
-    area: "Comunicación Escrita",
+    area: "Lectura Crítica",
     enunciado:
       "En un texto expositivo, ¿cuál es la función del párrafo introductorio?",
     opciones: {
@@ -155,7 +155,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "b",
   },
   {
-    area: "Comunicación Escrita",
+    area: "Lectura Crítica",
     enunciado:
       "¿Cuál de las siguientes oraciones contiene un error de concordancia?",
     opciones: {
@@ -167,7 +167,7 @@ export const preguntasICFES = [
     respuestaCorrecta: "b",
   },
   {
-    area: "Comunicación Escrita",
+    area: "Lectura Crítica",
     enunciado: "¿Qué característica distingue a un texto narrativo?",
     opciones: {
       a: "Incluye datos objetivos y estadísticas.",
