@@ -33,7 +33,7 @@ function Courses() {
 
   return (
     <div className="w-full px-5 mt-4">
-      <h2 className="font-semibold text-3xl mb-8 text-fblue-700">My courses</h2>
+      <h2 className="font-semibold text-3xl mb-8 text-fblue-700">Mis cursos</h2>
       <div className="w-full flex flex-wrap gap-5 pb-16 lg:pb-5">
         {sortedCourses.map((course, i) => {
           const progress = course.completedLessons / course.totalLessons;

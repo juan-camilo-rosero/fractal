@@ -54,7 +54,7 @@ function CoursesIndex({ id }) {
             <Breadcrumb>
               <BreadcrumbList className="text-base">
                 <BreadcrumbItem>
-                  <BreadcrumbLink href="/dashboard">Home</BreadcrumbLink>
+                  <BreadcrumbLink href="/dashboard">Inicio</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>

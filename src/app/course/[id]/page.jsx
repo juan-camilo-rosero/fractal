@@ -111,7 +111,7 @@ function PageContent() {
 
   // Evitar renderizar contenido si `user` aún es nulo
   if (user === null) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
 
   return (
